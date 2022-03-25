@@ -12,6 +12,21 @@ app.get("/start", (req, res) => {
     res.send({ msg: "Start Bin"})
 })
 
+app.get("/stop", (req, res) => {
+    console.log("Stop Bin")
+    res.send({ msg: "Start Bin"})
+})
+
+app.get("/speed", (req, res) => {
+    console.log("Speed up Bin")
+    res.send({ msg: "Start Bin"})
+})
+
+app.get("/slow", (req, res) => {
+    console.log("Slow down Bin")
+    res.send({ msg: "Start Bin"})
+})
+
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`)
 })
