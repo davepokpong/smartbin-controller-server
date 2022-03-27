@@ -5,7 +5,7 @@ const { default: axios } = require("axios")
 const app = express()
 app.use(cors())
 
-//0 100 150 200
+//speed 0 100 150 200
 
 const status = {
     moving_status: "stop",
@@ -30,6 +30,7 @@ app.get("/moving", (req, res) => {
         if(state === status.moving_status){
             console.log("Already " + state +"!!!")
             status.alert = "Already " + state +"!!!"
+            console.log(status)
             return;
         }else{
             if (state === "stop"){
