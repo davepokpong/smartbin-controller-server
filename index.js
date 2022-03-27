@@ -24,7 +24,7 @@ app.get("/start", (req, res) => {
         return;
     }else{
         let update = axios.get("https://smart-bin-controller-server.herokuapp.com/moving?state=start")
-        console.log(status)
+        console.log(update)
         res.send({ msg: "Start Bin"})
     } 
 })
@@ -35,7 +35,7 @@ app.get("/stop", (req, res) => {
         return;
     }else{
         let update = axios.get("https://smart-bin-controller-server.herokuapp.com/moving?state=stop")
-        console.log(status)
+        console.log(update)
         res.send({ msg: "Stop Bin"})
     } 
 })
