@@ -29,6 +29,7 @@ app.get("/slow", (req, res) => {
 
 app.get("/test", (req, res) => {
     let test = req.query.word
+    console.log("word: "+ test)
     res.send({ msg: test})
 })
 
