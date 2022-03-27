@@ -18,46 +18,9 @@ app.get("/", (req, res) => {
     res.send(status)
 })
 
-app.get("/start", (req, res) => {
-    console.log("Start Bin")
-    if (status.moving_status === "start"){
-        return;
-    }else{
-        let update = axios.get("https://smart-bin-controller-server.herokuapp.com/moving?state=start")
-        console.log(update)
-        res.send({ msg: "Start Bin"})
-    } 
-})
-
-app.get("/stop", (req, res) => {
-    console.log("Stop Bin")
-    if (status.moving_status === "stop"){
-        return;
-    }else{
-        let update = axios.get("https://smart-bin-controller-server.herokuapp.com/moving?state=stop")
-        console.log(update)
-        res.send({ msg: "Stop Bin"})
-    } 
-})
-
-// app.get("/speed", (req, res) => {
-//     console.log("Speed up Bin")
-//     if (status.moving_status === "stop"){
-//         return;
-//     }else{
-//         let update = axios.get("https://smart-bin-controller-server.herokuapp.com/setspeed?speed=stop")
-//         console.log(status)
-//         res.send({ msg: "Speed up Bin"})
-//     } 
-// })
-
-// app.get("/slow", (req, res) => {
-//     console.log("Slow down Bin")
-//     res.send({ msg: "Start Bin"})
-// })
-
 app.get("/moving", (req, res) => {
     let state = req.query.state
+    console.log("state : " + state)
     // console.log(status.moving_status)
     if (state === undefined){
         return ;
