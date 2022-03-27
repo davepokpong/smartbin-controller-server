@@ -10,6 +10,7 @@ app.use(cors())
 const status = {
     moving_status: "stop",
     speed_status: 0,
+    alert: ""
 }
 
 const port = process.env.PORT || 4000
@@ -28,6 +29,7 @@ app.get("/moving", (req, res) => {
     }else{
         if(state === status.moving_status){
             console.log("Already " + state +"!!!")
+            status.alert = "Already " + state +"!!!"
             return;
         }else{
             if (state === "stop"){
@@ -36,6 +38,7 @@ app.get("/moving", (req, res) => {
                 status.speed_status = 100
             }
             status.moving_status = state
+            status.alert = ""
             console.log(status)
             res.send(status)
         }
@@ -50,14 +53,18 @@ app.get("/setspeed", (req, res) => {
     }else{
         if (state === "increase" && status.speed_status<200){
             console.log("Speeding up")
-            status.speed_status += 50   
+            status.speed_status += 50 
+            status.alert = ""
         }else if (state === "increase" && status.speed_status===200){
             console.log("Already max speed")
+            status.alert = "Already max speed"
         }else if (state === "decrease" && status.speed_status>100){
             console.log("Slowing Down")
             status.speed_status -= 50 
+            status.alert = ""
         }else if (state === "decrease" && status.speed_status===100){
             console.log("Already min speed")
+            status.alert = "Already min speed"
         }else{
             return;
         }
