@@ -27,6 +27,11 @@ app.get("/slow", (req, res) => {
     res.send({ msg: "Start Bin"})
 })
 
+app.get("/test", (req, res) => {
+    let test = req.query("word")
+    res.send({ msg: test})
+})
+
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`)
 })
