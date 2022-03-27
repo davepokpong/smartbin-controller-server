@@ -26,6 +26,7 @@ app.get("/moving", (req, res) => {
         return ;
     }else{
         status.moving_status = state
+        console.log(status)
         res.send(status)
     } 
 })
