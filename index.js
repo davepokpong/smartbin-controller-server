@@ -20,14 +20,19 @@ app.get("/", (req, res) => {
 
 app.get("/moving", (req, res) => {
     let state = req.query.state
-    console.log("state : " + state)
+    console.log("moving state : " + state)
     // console.log(status.moving_status)
     if (state === undefined){
         return ;
     }else{
-        status.moving_status = state
-        console.log(status)
-        res.send(status)
+        if(state === status.moving_status){
+            console.log("Already " + state +"!!!")
+            return;
+        }else{
+            status.moving_status = state
+            console.log(status)
+            res.send(status)
+        }
     } 
 })
 
@@ -44,12 +49,19 @@ app.get("/setspeed", (req, res) => {
 
 app.get("/direction", (req, res) => {
     let state = req.query.state
+    console.log("direction state : " + state)
     // console.log(status.moving_status)
     if (state === undefined){
         return ;
     }else{
-        status.direction_status = state
-        res.send(status)
+        if(state === status.direction_status){
+            console.log("Already " + state +"!!!")
+            return;
+        }else{
+            status.direction_status = state
+            console.log(status)
+            res.send(status)
+        }
     } 
 })
 
