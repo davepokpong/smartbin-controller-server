@@ -49,10 +49,12 @@ app.get("/setspeed", (req, res) => {
         return ;
     }else{
         if (state === "increase" && status.speed_status<200){
+            console.log("Speeding up")
             status.speed_status += 50   
         }else if (state === "increase" && status.speed_status===200){
             console.log("Already max speed")
         }else if (state === "decrease" && status.speed_status>100){
+            console.log("Slowing Down")
             status.speed_status -= 50 
         }else if (state === "decrease" && status.speed_status===100){
             console.log("Already min speed")
