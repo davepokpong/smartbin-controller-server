@@ -28,7 +28,7 @@ app.get("/slow", (req, res) => {
 })
 
 app.get("/test", (req, res) => {
-    let test = req.query("word")
+    let test = req.query.word
     res.send({ msg: test})
 })
 
