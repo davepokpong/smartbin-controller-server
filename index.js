@@ -15,7 +15,7 @@ const status = {
 const port = process.env.PORT || 4000
 
 app.get("/", (req, res) => {
-    console.log(status)
+    console.log("Get status")
     res.send(status)
 })
 
