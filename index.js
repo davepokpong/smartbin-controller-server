@@ -33,11 +33,10 @@ app.get("/moving", (req, res) => {
             console.log(status)
             return;
         }else{
-            if (status.moving_status === 0){
-                status.speed_status = 0
-                console.log("YU neeeeee")
-            }else{
+            if (state != 0){
                 status.speed_status = 100
+            }else{
+                status.speed_status = 0
             }
             status.moving_status = state
             status.alert = ""
