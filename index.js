@@ -33,7 +33,7 @@ app.get("/moving", (req, res) => {
             console.log(status)
             return;
         }else{
-            if (state === 0){
+            if (status.moving_status === 0){
                 status.speed_status = 0
                 console.log("YU neeeeee")
             }else{
