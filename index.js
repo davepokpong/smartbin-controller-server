@@ -103,7 +103,11 @@ app.get("/turn", (req, res) => {
             if (status.left != 0){
                 status.left = 0
             }else{
-                status.left = 1
+                if (status.right != 1){
+                    status.left = 1
+                }else{
+                    return;
+                }           
             }
         }else{
             if (status.right != 0){
