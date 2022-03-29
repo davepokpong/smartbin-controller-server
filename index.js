@@ -101,6 +101,7 @@ app.get("/setspeed", (req, res) => {
 app.get("/turn", (req, res) => {
     let left = parseInt(req.query.left)
     let right = parseInt(req.query.right)
+    console.log("left: " + left + " Right: " + right)
     if (left === undefined || right === undefined){return}
     else{
         if (left === 1 && right === 0){
