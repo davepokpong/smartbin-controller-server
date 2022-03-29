@@ -23,7 +23,7 @@ app.get("/", (req, res) => {
 })
 
 app.get("/moving", (req, res) => {
-    let state = req.query.state
+    let state = parseInt(req.query.state)
     let setspeed = parseInt(req.query.setspeed)
     console.log("moving state : " + state)
     if (setspeed){
@@ -41,7 +41,6 @@ app.get("/moving", (req, res) => {
             }
             console.log(status)
             return;
-            
         }else{
             if (state != 0){
                 // status.speed_status = setspeed
