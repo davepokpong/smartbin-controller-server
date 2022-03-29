@@ -61,6 +61,7 @@ app.get("/setspeed", (req, res) => {
             return;
         }else{
             status.speed_status = spd
+            console.log(status)
         }
     }else{
         if (state === undefined){
