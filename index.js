@@ -7,7 +7,7 @@ app.use(cors())
 
 //speed 0 100 150 200
 
-const status = {
+const status = { //stop
     moving_status: 0,
     speed_status: 0,
     alert: ""
@@ -22,7 +22,11 @@ app.get("/", (req, res) => {
 
 app.get("/moving", (req, res) => {
     let state = req.query.state
+    let setspeed = req.query.setspeed
     console.log("moving state : " + state)
+    if (setspeed){
+        console.log("speed : "+ setspeed)
+    }
     // console.log(status.moving_status)
     if (state === undefined){
         return ;
@@ -34,7 +38,7 @@ app.get("/moving", (req, res) => {
             return;
         }else{
             if (state != 0){
-                status.speed_status = 100
+                status.speed_status = setspeed
             }else{
                 status.speed_status = 0
             }
