@@ -45,8 +45,8 @@ app.get("/moving", (req, res) => {
             console.log(status)
             return;
         }else{
-            if (state != 0){
-                // status.speed_status = setspeed
+            if (state != 0 && setspeed){
+                status.speed_status = setspeed
             }else{
                 status.speed_status = 0
                 status.left = 0
