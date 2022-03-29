@@ -37,6 +37,7 @@ app.get("/moving", (req, res) => {
             if (state != 0){
                 console.log("Stop")
                 status.alert = ""
+                status.moving_status = 0
             }
             console.log(status)
             return;
