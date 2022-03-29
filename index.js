@@ -99,29 +99,22 @@ app.get("/setspeed", (req, res) => {
 })
 
 app.get("/turn", (req, res) => {
-    let state = req.query.state
-    if (state === undefined){return}
+    let left = parseInt(req.query.left)
+    let right = parseInt(req.query.right)
+    if (left === undefined || right === undefined){return}
     else{
-        if (state === 'left'){
-            if (status.left != 0){
+        if (left === 1 && right === 0){
+            if (status.left === 1){
                 status.left = 0
-            }else{
-                if (status.right != 1){
-                    status.left = 1
-                }else{
-                    return;
-                }           
             }
-        }else{
-            if (status.right != 0){
+            status.left === 1
+        }else if (left === 0 && right === 1){
+            if (status.right === 1){
                 status.right = 0
-            }else{
-                if (status.left != 1){
-                    status.left = 1
-                }else{
-                    return;
-                } 
             }
+        }else if (left ===0 && right === 0){
+            status.left = 0
+            status.right = 0
         }
     }
 })
