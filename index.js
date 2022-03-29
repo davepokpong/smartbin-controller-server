@@ -10,7 +10,9 @@ app.use(cors())
 const status = { //stop
     moving_status: 0,
     speed_status: 0,
-    alert: ""
+    alert: "",
+    left: 0,
+    right: 0
 }
 
 const port = process.env.PORT || 4000
@@ -87,6 +89,26 @@ app.get("/setspeed", (req, res) => {
             console.log(status)
             res.send(status)
         } 
+    }
+})
+
+app.get("/turn", (req, res) => {
+    let state = req.query.state
+    if (state === undefined){return}
+    else{
+        if (state === 'left'){
+            if (status.left != 0){
+                status.left = 0
+            }else{
+                status.left = 1
+            }
+        }else{
+            if (status.right != 0){
+                status.right = 0
+            }else{
+                status.right = 1
+            }
+        }
     }
 })
 
