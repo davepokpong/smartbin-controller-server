@@ -39,6 +39,8 @@ app.get("/moving", (req, res) => {
                 status.alert = ""
                 status.moving_status = 0
                 status.speed_status = 0
+                status.left = 0
+                status.right = 0
             }
             console.log(status)
             return;
