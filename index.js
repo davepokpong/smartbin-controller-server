@@ -113,6 +113,7 @@ app.get("/turn", (req, res) => {
             status.right = 0
         }
     }
+    console.log(status)
 })
 
 app.listen(port, () => {
