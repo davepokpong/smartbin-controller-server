@@ -34,10 +34,13 @@ app.get("/moving", (req, res) => {
         return ;
     }else{
         if(state === status.moving_status){
-            console.log("Already " + state +"!!!")
-            status.alert = "Already " + state +"!!!"
+            if (state != 0){
+                console.log("Stop")
+                status.alert = ""
+            }
             console.log(status)
             return;
+            
         }else{
             if (state != 0){
                 // status.speed_status = setspeed
