@@ -107,10 +107,13 @@ app.get("/turn", (req, res) => {
     if (left === undefined || right === undefined){return}
     else{
         if (left === 1 && right === 0){
+            status.moving_status = 0
             status.left = 1
         }else if (left === 0 && right === 1){
+            status.moving_status = 0
             status.right = 1
         }else if (left ===0 && right === 0){
+            status.moving_status = 0
             status.left = 0
             status.right = 0
         }
