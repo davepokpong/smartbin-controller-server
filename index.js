@@ -38,6 +38,7 @@ app.get("/moving", (req, res) => {
                 console.log("Stop")
                 status.alert = ""
                 status.moving_status = 0
+                status.speed_status = 0
             }
             console.log(status)
             return;
