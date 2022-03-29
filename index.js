@@ -47,6 +47,8 @@ app.get("/moving", (req, res) => {
                 // status.speed_status = setspeed
             }else{
                 status.speed_status = 0
+                status.left = 0
+                status.right = 0
             }
             status.moving_status = state
             status.alert = ""
