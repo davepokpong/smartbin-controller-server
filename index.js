@@ -56,11 +56,11 @@ app.get("/setspeed", (req, res) => {
     // console.log(status.moving_status)
     if (spd){
         console.log("Set speed to "+ spd)
-        if (spd === speed_status){
+        if (spd === status.speed_status){
             console.log("Speed is already "+spd)
             return;
         }else{
-            state.speed_status = spd
+            status.speed_status = spd
         }
     }else{
         if (state === undefined){
