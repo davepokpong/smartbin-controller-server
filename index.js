@@ -38,7 +38,7 @@ app.get("/moving", (req, res) => {
             return;
         }else{
             if (state != 0){
-                status.speed_status = setspeed
+                return;
             }else{
                 status.speed_status = 0
             }
@@ -52,30 +52,41 @@ app.get("/moving", (req, res) => {
 
 app.get("/setspeed", (req, res) => {
     let state = req.query.state
+    let spd = req.query.spd
     // console.log(status.moving_status)
-    if (state === undefined){
-        return ;
-    }else{
-        if (state === "increase" && status.speed_status<200){
-            console.log("Speeding up")
-            status.speed_status += 50 
-            status.alert = ""
-        }else if (state === "increase" && status.speed_status===200){
-            console.log("Already max speed")
-            status.alert = "Already max speed"
-        }else if (state === "decrease" && status.speed_status>100){
-            console.log("Slowing Down")
-            status.speed_status -= 50 
-            status.alert = ""
-        }else if (state === "decrease" && status.speed_status===100){
-            console.log("Already min speed")
-            status.alert = "Already min speed"
-        }else{
+    if (spd){
+        console.log("Set speed to "+ spd)
+        if (spd === speed_status){
+            console.log("Speed is already "+spd)
             return;
+        }else{
+            state.speed_status = spd
         }
-        console.log(status)
-        res.send(status)
-    } 
+    }else{
+        if (state === undefined){
+            return ;
+        }else{
+            if (state === "increase" && status.speed_status<200){
+                console.log("Speeding up")
+                status.speed_status += 50 
+                status.alert = ""
+            }else if (state === "increase" && status.speed_status===200){
+                console.log("Already max speed")
+                status.alert = "Already max speed"
+            }else if (state === "decrease" && status.speed_status>100){
+                console.log("Slowing Down")
+                status.speed_status -= 50 
+                status.alert = ""
+            }else if (state === "decrease" && status.speed_status===100){
+                console.log("Already min speed")
+                status.alert = "Already min speed"
+            }else{
+                return;
+            }
+            console.log(status)
+            res.send(status)
+        } 
+    }
 })
 
 app.listen(port, () => {
